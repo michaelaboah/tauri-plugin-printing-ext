@@ -11,11 +11,9 @@ exclude = ["/examples", "/webview-dist", "/webview-src", "node_modules"]
 tauri = { version = "1.4.0" }
 
 [target.'cfg(macos)'.dependencies]
-base64 = { version = "0.21.4", optional = true }
-cocoa = { version = "0.25.0", optional = true }
-objc =  { version = "0.2.7", optional = true }
-bson = { version = "2.6.1", optional = true }
+base64 = "0.21.4" 
+cocoa = "0.25.0" 
+objc = "0.2.7" 
+bson = "2.6.1" 
 
-[features]
-macos-fix = ["base64", "cocoa", "objc", "bson"]
 
