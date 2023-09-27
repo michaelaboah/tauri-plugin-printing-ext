@@ -1,3 +1,4 @@
+#[cfg(target_os = "macos")]
 mod dialogs;
 
 use tauri::{
@@ -5,15 +6,16 @@ use tauri::{
     Runtime,
 };
 
+#[tauri::command]
+fn greet() {}
+
 /// Initializes the plugin.
 pub fn init<R: Runtime>() -> TauriPlugin<R> {
-    let builder = Builder::new("printing-ext");
+    #[cfg(not(target_os = "macos"))]
+    return Builder::new("printing-ext").build();
 
-    if cfg!(feature = "macos-fix") {
-        #[cfg(target_os = "macos")]
-        let builder = builder.invoke_handler(tauri::generate_handler![dialogs::print_dialog]);
-        return builder.build();
-    }
-
-    return builder.build();
+    #[cfg(target_os = "macos")]
+    return Builder::new("printing-ext")
+        .invoke_handler(tauri::generate_handler![dialogs::print_dialog])
+        .build();
 }

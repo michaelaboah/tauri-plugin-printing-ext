@@ -1,9 +1,6 @@
-#[cfg(target_os = "macos")]
 use base64::{engine::general_purpose, Engine as _};
 
-#[cfg(target_os = "macos")]
 use cocoa::base::{id,  BOOL, NO, YES};
-#[cfg(target_os = "macos")]
 use objc::{
     class,
     msg_send,
@@ -11,7 +8,6 @@ use objc::{
 };
 
 
-#[cfg(target_os = "macos")]
 #[tauri::command]
 pub fn print_dialog(window: tauri::Window, base64: String) {
 
