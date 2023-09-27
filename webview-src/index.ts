@@ -3,7 +3,7 @@ import { jsPDF } from "jspdf"
 
 export async function printDialog(htmlTarget: HTMLElement) {
 
-  if (process.platform !== "darwin") {
+  if (!navigator.userAgent.includes("Mac")) {
     return console.error("Darwin or macOs specific operation")
   }
 
