@@ -11,6 +11,27 @@ A Tauri plugin for extending printing functionality. This plugin provides a work
 
 - Minimum macOS version: 10.15. This is due to the use of PDFKit PDFDocument. Perhaps it can be substituted for NSDocument.
 
+
+## Example
+
+```html
+<script lang="ts">
+  import { onMount } from 'svelte';
+  import { printDialog } from './path/to/your/module';
+
+  let printableArea: HTMLElement;
+
+  onMount(() => {
+    printDialog(printableArea);
+  });
+</script>
+
+<div bind:this={printableArea}>
+  <h1>Hello, world!</h1>
+  <p>This is some content that will be printed.</p>
+</div>
+```
+
 ## How it Works
 
 The goal is to get closer to the native print functionality of Safari that is missing by default in the tauri-apps/Wry crate.

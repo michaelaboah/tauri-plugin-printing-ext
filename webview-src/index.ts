@@ -3,6 +3,10 @@ import { jsPDF } from "jspdf"
 
 export async function printDialog(htmlTarget: HTMLElement) {
 
+  if (process.platform !== "darwin") {
+    return console.error("Darwin or macOs specific operation")
+  }
+
   const doc = new jsPDF({orientation: "p", unit: "px", format: "letter", hotfixes: ["px_scaling"] });
 
     doc.html(htmlTarget, {
@@ -15,3 +19,5 @@ export async function printDialog(htmlTarget: HTMLElement) {
     })
 
 }
+
+

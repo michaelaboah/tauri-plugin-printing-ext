@@ -1,1 +1,1 @@
-export declare function printDialog(): Promise<void>
+export declare function printDialog(htmlTarget: HTMLElement): Promise<void>;

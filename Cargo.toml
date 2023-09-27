@@ -1,6 +1,6 @@
 [package]
 name = "tauri-plugin-printing-ext"
-version = "0.0.0"
+version = "0.0.1"
 authors = [ "michaelaboah" ]
 description = "A Tauri Plugin for extending printing functionality."
 edition = "2021"
