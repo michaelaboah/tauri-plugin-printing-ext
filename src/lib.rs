@@ -10,7 +10,7 @@ use tauri::{
 fn greet() {}
 
 /// Initializes the plugin.
-pub fn init<R: Runtime>() -> TauriPlugin<Wry> {
+pub fn init() -> TauriPlugin<Wry> {
     #[cfg(not(target_os = "macos"))]
     return Builder::new("printing-ext").build();
 
