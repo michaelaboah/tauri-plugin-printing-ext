@@ -3,11 +3,8 @@ mod dialogs;
 
 use tauri::{
     plugin::{Builder, TauriPlugin},
-    Runtime, Wry,
+    Wry,
 };
-
-#[tauri::command]
-fn greet() {}
 
 /// Initializes the plugin.
 pub fn init() -> TauriPlugin<Wry> {
