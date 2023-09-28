@@ -3,14 +3,14 @@ mod dialogs;
 
 use tauri::{
     plugin::{Builder, TauriPlugin},
-    Runtime,
+    Runtime, Wry,
 };
 
 #[tauri::command]
 fn greet() {}
 
 /// Initializes the plugin.
-pub fn init<R: Runtime>() -> TauriPlugin<R> {
+pub fn init<R: Runtime>() -> TauriPlugin<Wry> {
     #[cfg(not(target_os = "macos"))]
     return Builder::new("printing-ext").build();
 
