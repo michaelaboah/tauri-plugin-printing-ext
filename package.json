@@ -21,7 +21,6 @@
   },
   "dependencies": {
     "@tauri-apps/api": "^1.0.0",
-    "jspdf": "^2.5.1",
     "tslib": "^2.1.0"
   }
 }
