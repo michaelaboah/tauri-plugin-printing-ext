@@ -1,19 +1,17 @@
-<script>
+<script lang="ts">
   import Greet from './lib/Greet.svelte'
   import { printDialog } from 'tauri-plugin-printing-ext-api'
+  import { onMount } from "svelte"
 
-	let response = ''
+  let target: HTMLElement
 
-	function updateResponse(returnValue) {
-		response += `[${new Date().toLocaleTimeString()}]` + (typeof returnValue === 'string' ? returnValue : JSON.stringify(returnValue)) + '<br>'
-	}
+  onMount(() => {
+    console.log(target)
+  })
 
-	function _execute() {
-		execute().then(updateResponse).catch(updateResponse)
-	}
 </script>
 
-<main class="container">
+<main class="container" bind:this={target}>
   <h1>Welcome to Tauri!</h1>
 
   <div class="row">

@@ -1,6 +1,6 @@
 {
   "name": "tauri-plugin-printing-ext-api",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "author": "Michael Aboah",
   "description": "A Tauri plugin for extending printing functionality. This plugin provides a workaround for printing specific HTML on macOS.",
   "browser": "webview-dist/index.js",

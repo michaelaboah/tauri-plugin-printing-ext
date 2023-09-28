@@ -12,7 +12,7 @@ export default {
   },
   plugins: [
     commonjs(),
-    nodeResolve(),
+    // nodeResolve(),
     terser(),
     typescript({
       tsconfig: './webview-src/tsconfig.json',
