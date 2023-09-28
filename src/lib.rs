@@ -1,7 +1,8 @@
 #[cfg(target_os = "macos")]
 pub mod dialogs {
     use base64::{engine::general_purpose, Engine as _};
-
+    use core::ptr::null;
+    use std::ffi::c_void;
     use cocoa::base::{id,  BOOL, NO, YES};
     use objc::{
         class,
@@ -12,7 +13,6 @@ pub mod dialogs {
 
     #[tauri::command]
     pub fn print_dialog(window: tauri::Window, base64: String) {
-
         let _ = window.with_webview(move |view| {
 
             let bytes: &[u8] = &general_purpose::STANDARD.decode(&base64).unwrap();
@@ -41,9 +41,13 @@ pub mod dialogs {
                 
                 // https://developer.apple.com/documentation/pdfkit/pdfdocument/1436075-printoperationforprintinfo?language=objc
                 let print_ops: id =
-                    msg_send![doc, printOperationForPrintInfo: print_info scalingMode: 2 autoRotate: NO];
+                    msg_send![doc, printOperationForPrintInfo: print_info scalingMode: 1 autoRotate: NO];
 
-                let () = msg_send![print_ops, runOperation];
+                // let print_ops: id = msg_send![print_ops, setCanSpawnSeparateThread: YES];
+        println!("Run the dialog");
+
+                let () = msg_send![print_ops, runOperationModalForWindow: view.ns_window() delegate: null::<*const c_void>() didRunSelector: null::<*const c_void>() contextInfo: null::<*const c_void>()];
+                // let () = msg_send![print_ops, runOperation];
             }
         });
     }
