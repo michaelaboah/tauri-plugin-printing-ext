@@ -1,0 +1,61 @@
+Arguments: 
+  /usr/bin/node-18 /usr/local/bin/yarn publish
+
+PATH: 
+  /home/michaelaboah/.local/share/nvim/mason/bin:/home/michaelaboah/.local/bin:/home/michaelaboah/bin:/usr/lib64/ccache:/home/michaelaboah/.cargo/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/var/lib/snapd/snap/bin:/home/michaelaboah/go/bin:/home/michaelaboah/.cargo/bin:/home/michaelaboah/.cargo/bin:/home/michaelaboah/.cargo/bin:/home/michaelaboah/.cargo/bin
+
+Yarn version: 
+  1.22.19
+
+Node version: 
+  18.16.0
+
+Platform: 
+  linux x64
+
+Trace: 
+  Error: canceled
+      at Interface.<anonymous> (/usr/local/lib/node_modules/yarn/lib/cli.js:137150:13)
+      at Interface.emit (node:events:513:28)
+      at [_ttyWrite] [as _ttyWrite] (node:internal/readline/interface:1131:18)
+      at ReadStream.onkeypress (node:internal/readline/interface:270:20)
+      at ReadStream.emit (node:events:513:28)
+      at emitKeys (node:internal/readline/utils:357:14)
+      at emitKeys.next (<anonymous>)
+      at ReadStream.onData (node:internal/readline/emitKeypressEvents:64:36)
+      at ReadStream.emit (node:events:513:28)
+      at addChunk (node:internal/streams/readable:324:12)
+
+npm manifest: 
+  {
+    "name": "tauri-plugin-printing-ext-api",
+    "version": "0.0.3",
+    "author": "Michael Aboah",
+    "description": "A Tauri plugin for extending printing functionality. This plugin provides a workaround for printing specific HTML on macOS.",
+    "browser": "webview-dist/index.js",
+    "main": "webview-dist/index.js",
+    "types": "webview-dist/index.d.ts",
+    "scripts": {
+      "build": "rollup -c ./webview-src/rollup.config.js",
+      "prepublishOnly": "yarn build",
+      "pretest": "yarn build"
+    },
+    "devDependencies": {
+      "@rollup/plugin-node-resolve": "13.3.0",
+      "@rollup/plugin-typescript": "8.3.3",
+      "rollup": "2.75.6",
+      "rollup-plugin-terser": "7.0.2",
+      "typescript": "4.7.3",
+      "@rollup/plugin-commonjs": "^25.0.4"
+    },
+    "dependencies": {
+      "@tauri-apps/api": "^1.0.0",
+      "tslib": "^2.1.0"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
